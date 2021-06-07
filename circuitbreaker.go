@@ -28,6 +28,11 @@ type CircuitBreaker struct {
 	Backoff int // Millisecond - Wait time each request
 }
 
+// New initiate circuit breaker
+func New() CircuitBreaker {
+	return CircuitBreaker{}
+}
+
 // CallUsingCircuitBreaker call http with circuit breaker
 func (cb CircuitBreaker) CallUsingCircuitBreaker(breakername string, req *http.Request, body []byte) ([]byte, error) {
 	timeout := DefaultTimeout
